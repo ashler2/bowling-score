@@ -1,0 +1,27 @@
+{
+  "name": "bowling-score",
+  "version": "1.0.0",
+  "description": "A re-attempt at a tech test, not timed, put on a new repo to send code across rather than through the react app im building for it.",
+  "main": "game.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashler2/bowling-score.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashler2/bowling-score/issues"
+  },
+  "homepage": "https://github.com/ashler2/bowling-score#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0"
+  }
+}
