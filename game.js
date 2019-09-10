@@ -31,7 +31,7 @@ class Game {
   scoreFrame(pins) {
     const { currentFrame, maxPins, remainingPins } = this;
     this.scoreBoard[currentFrame - 1] = maxPins - remainingPins + pins;
-    this.strikeTrue(pins);
+    this.prevStrikeTrue(pins);
     this.frameIncrease();
   }
 
@@ -40,19 +40,19 @@ class Game {
   }
   scoreFirstRoll(pins) {
     this.remainingPins -= pins;
-    this.spareTrue(pins);
-    this.strikeTrue(pins);
+    this.prevSpareTrue(pins);
+    this.prevStrikeTrue(pins);
     this.frameIncrease();
   }
   scoreStrike() {
     const { scoreBoard, currentFrame, maxPins } = this;
     scoreBoard[currentFrame - 1] = "Strike";
-    this.strikeTrue(maxPins);
-    this.spareTrue(maxPins);
+    this.prevStrikeTrue(maxPins);
+    this.prevSpareTrue(maxPins);
     this.frameIncrease();
   }
 
-  strikeTrue(pins) {
+  prevStrikeTrue(pins) {
     //add after 10 frames
     const { scoreBoard, currentFrame, frameRollNum } = this;
     if (
@@ -70,11 +70,11 @@ class Game {
 
   scoreSpare(pins) {
     this.scoreBoard[this.currentFrame - 1] = "Spare";
-    this.strikeTrue(pins);
+    this.prevStrikeTrue(pins);
     this.frameIncrease();
   }
 
-  spareTrue(pins) {
+  prevSpareTrue(pins) {
     const { scoreBoard, currentFrame } = this;
     if (scoreBoard[currentFrame - 2] === "Spare") {
       this.frameScores[currentFrame - 2] += pins;
